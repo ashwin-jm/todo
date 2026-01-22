@@ -20,12 +20,14 @@ def main():
             print(f'Task "{task}" added.')
 
         elif user_choice == '2':    
-            task = input("Enter the task to delete: ")
-            if task in user_tasks:
-                user_tasks.remove(task)
-                print(f'Task "{task}" deleted.')
-            else:
-                print(f'Task "{task}" not found.')
+            task_to_delete = input("Enter the task to delete: ").lower()
+            for task in user_tasks:
+                if task.lower() == task_to_delete:
+                    user_tasks.remove(task)
+                    print(f'Task "{task}" deleted.')
+                    break
+                else:
+                    print(f'Task "{task_to_delete}" not found.')
 
         elif user_choice == '3':
             if user_tasks:
